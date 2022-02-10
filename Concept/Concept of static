@@ -1,0 +1,70 @@
+변수에 static 키워드를 붙이면 자바는 메모리 할당을 딱 한번만 하게 되어 메모리 사용에 이점이 있다
+* 만약 클래스의 변수 값이 변경되지 않길 바란다면 static 키워드 앞에 final이라는 키워드를 붙이면 된다. final 키워드는 한번 설정되면 그 값을 바꿀 수 없다. 변경하려고 하면 오류가 발생
+
+static을 사용하는 또 한가지 이유로 공유 개념을 들 수 있다. static으로 설정하면 같은 곳의 메모리 주소만을 바라보기 때문에 static 변수의 값을 공유하게 되는 것
+
+ex)
+public class Counter  {
+    int count = 0;
+    Counter() {
+        this.count++;
+        System.out.println(this.count);
+    }
+
+    public static void main(String[] args) {
+        Counter c1 = new Counter();
+        Counter c2 = new Counter();
+    }
+}
+위 Counter 클래스를 실행했을 때의 결과값
+1
+1
+c1, c2 객체 생성 시 생성자에서 객체변수인 count의 값을 1씩 증가하더라도 c1과 c2의 count는 서로 다른 메모리를 가리키고 있기 때문에 원하던 결과(count가 증가된 결과)가 나오지 않는 것 
+-> 객체변수는 항상 독립적인 값을 갖기 때문에 당연한 결과
+
+public class Counter  {
+    static int count = 0;
+    Counter() {
+        this.count++;
+        System.out.println(this.count);
+    }
+
+    public static void main(String[] args) {
+        Counter c1 = new Counter();
+        Counter c2 = new Counter();
+    }
+}
+int count = 0 앞에 static 키워드를 붙였더니 count 값이 공유되어 다음과 같이 결과값이 증가되어 출력
+1
+2
+
+보통 변수의 static 키워드는 프로그래밍 시 메모리의 효율 보다는 두번째 처럼 공유의 목적으로 훨씬 더 많이 사용한다.
+
+static method
+
+static이라는 키워드가 메소드 앞에 붙으면 이 메소드는 static method가 된다.
+ex)
+
+public class staticTest {
+	public static void main(String[] args) {
+		Counters c1 = new Counters();
+        Counters c2 = new Counters();
+        
+        System.out.println(Counters.getCount());
+	}
+}
+class Counters {
+	static int count = 0;
+	Counters() {
+		this.count++;
+		System.out.println(this.count);
+	}
+	public static int getCount() {
+		return count;
+	}
+}
+이전의 class와 비교해서 getCount() 라는 메소드가 추가 메소드 앞에 static 키워드를 붙이면 Counters.getCount()와 같이 객체 생성 없이 클래스를 통해 직접 호출 할 수 있다.
+
+*static method 안에서는 객체변수 접근이 불가능 하기 때문에 위 예에서는 count 변수가 static 변수이기 때문에 static method에서 접근이 가능
+
+보통 static method는 utility성 method를 작서할 때 많이 사용
