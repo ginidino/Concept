@@ -1,0 +1,73 @@
+자바 Buffer
+
+통신에서 buffer를 쓰는 방법
+A와 B가 통신한다고 가정
+통신 시 A와 B에게 Buffer를 같은 크기로 설정 -> 내가 보내고 싶은 데이터를 buffer에 적재하고, buffer를 전송
+However, buffer가 다 안차도 강제로 보낼 수 있다
+
+buffer는 꽉차면 자동을 flush 된다. = AutoFlush (즉 전송)
+A는 OutputBuffer (Write)
+B는 InputBuffer (Read)
+
+만약 데이터의 크기가 buffer보다 크다면 나머지 데이터는 대기한다.
+AutoFlush를 실행하고, A 빈 공간을 다시 데이터로 채운다. 하지만 B는 전송받은 데이터로 인해 데이터를 추가로 적재 할 수 없다.
+B가 추가 데이터를 적재하기 위해서는 Read 해서 빈공간을 만들고 남은 데이터를 A에 넣고 강제 flush 해준다.
+—> 가변적으로 데이터를 변경할 수 있다는 장점
+
+BufferedReader 사용법
+BufferedReader bf = new BufferedReader(new InputStreamReader(System.in)); //선언
+String s = bf.readLine(); //String
+int i = Integer.parseInt(bf.readLine()); //Int
+
+입력한 readLine();
+InputStream()으로 값을 익고 (바이트 단위), InputStreamReader(문자 단위)로 읽고, BufferedReader()로 최종적으로 값을 받아옴
+
+read()로 처리한 데이터는 Line단위로 나눠지는데, 공백 단위로 데이터를 가공하려면 readLine()을 사용 (Buffer를 비울 때 사용)
+전송 받은 데이터를 익을 때 사용
+
+readLine을 while(true)문으로 돌리기
+But Buffer에 데이터가 없어도 계속 실행되는 오류가 발생
+
+Buffer에 아무값이 없으면 즉 null이 아니면 실행 오류가 발생 하면 try/catch 실행
+바깥에 try/catch가 생기니까 안에 try/catch 삭제시켜줌
+
+readLine 하는 동시에 데이터와 비교하기
+Buffer가 가득 찰 때 까지 비교, null이 아니면 출력
+
+예시 코드
+try {
+	while ((data = br2.readLine()) != null) {
+		data = br2.readLine(); // 프로그램 대기 상태
+		System.out.println(data);
+	}
+} catch (IOException e) {
+	e.printStackTrace();
+}
+
+BufferedWriter 사용법
+BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.in)); //선언
+String s = “abcedfg”; // 출력할 문자열
+bw.write(s + “\n”); // 출력
+bw.flush(); //남아있는 데이터를 모두 출력시킴
+bw.close(); //스트림을 닫음
+
+많은 양을 출력 할 때 bufferedWriter를 사용
+값을 출력시키고 반드시, flush()로 해당 버퍼를 비워주고, close()로 버퍼를 닫아준다. 그리고 write()에는 Enter기능이 없기 때문에 줄 개생시 \n을 사용
+
+자주쓰는 method
+
+BufferedReader(Reader rd) : rd에 연결되는 문자입력 버퍼스트림 생성
+BufferedWriter(Writer wt) : wt에 연결되는 문자 출력 버퍼스트림 생성
+int read() : 스트림으로부터 한 문자를 읽어서 int 형으로 리턴
+int read(char[] buf) : 문자배열 buf의 크기만큼 문자를 읽어들임, 일어들인 문자 수를 리턴
+int read(char[] buf, int offset, int length) : buf의 offset위치에서부터 length 길이만큼 문자를 스트림으로부터 읽어들임
+String readerLine() : String으로부터 한 줄을 읽어 문자열로 리턴
+void mark() : 현재위치를 마킹, 차 후 reset()을 이용하여 마킹위치부터 시작 
+void reset() : 마킹이 있으면 그 위치에서부터 다시 시작, 그렇지 않으면 처음부터 다시 시작
+long skip(int n) : n개의 문자를 건너 뜀
+void close() : 스트림 닫음
+void write(int c) : int 형으로 문자 데이터를 출력 문자스트림으로 출력
+void write(String s, int offset, int length) : 문자열 s를 offset위치부터 length 길이만큼을 출력스트림으로 출력
+void write(char[] buf, int offset, int length) : 문자배열 buf의 offset 위치부터 length 길이만큼을 출력 스트림으로 출력
+void newLine() : 줄바꿈 문자열 출력
+void flush() : 남아있는 데이터를 모두 출력시킴
