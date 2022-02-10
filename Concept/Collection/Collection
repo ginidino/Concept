@@ -1,0 +1,6 @@
+Collection Class
+
+- Collections class는 여러 유용한 알고리즘을 구현한 method를 제공
+- 이 method들은 generic 기술을 사용하여 작성되었으며, 정적 method의 형태
+- 자주 사용되는 algorithm은 Sorting(정렬), Shuffling(섞기), Searching(탐색) 
+ •언급한 세 method의 첫 번째 매개변수는 algorithm이 적용되는 Collection
