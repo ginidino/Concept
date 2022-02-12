@@ -1,0 +1,230 @@
+Nested Loop in java
+
+If a loop exists inside the body of another loop, it’s called a nested loop.
+Example of the nested for loop
+// outer loop
+for (int i = 1; i <= 5; ++i) {
+  // codes
+
+  // inner loop
+  for(int j = 1; j <=2; ++j) {
+    // codes
+  }
+..
+}
+
+it is using a for loop inside another for loop
+
+Example 1: Java Nested for Loop
+public class for loop {
+	public static void main(String[] args) {
+		int weeks = 3;
+		int days = 7;
+		
+		// outer loop prints weeks
+		for (int i = 1; i <= weeks; i++) {
+			System.out.println("Week: " + i);
+			
+			// inner loop prints days
+			for (int j = 1; j <= days; j++) {
+				System.out.println("  Day: " + j);
+			}
+		}
+	}
+}
+
+Output
+Week: 1
+  Day: 1
+  Day: 2
+  Day: 3
+  Day: 4
+  Day: 5
+  Day: 6
+  Day: 7
+Week: 2
+  Day: 1
+  Day: 2
+  Day: 3
+  Day: 4
+  Day: 5
+  Day: 6
+  Day: 7
+Week: 3
+  Day: 1
+  Day: 2
+  Day: 3
+  Day: 4
+  Day: 5
+  Day: 6
+  Day: 7
+
+In the above example, the outer loop iterates 3 times and prints 3 weeks. 
+And the inner loop iterates 7 times and prints the 7 dats
+
+In a similar way, it can also create nested loops with while loop.
+
+Example2: Java for loop inside the while loop
+public class whileloop {
+	public static void main(String[] args) {
+		int weeks = 3;
+		int days = 7;
+		int i = 1;
+		
+		while (i <= weeks) {
+			System.out.println("Week: " + i);
+			
+			for (int j = 1; j <= days; j++) {
+				System.out.println("  Days: " + j);
+			}
+			++i;
+		}
+	}
+}
+Output
+Week: 1
+  Day: 1
+  Day: 2
+  Day: 3
+  Day: 4
+  Day: 5
+  Day: 6
+  Day: 7
+Week: 2
+  Day: 1
+  Day: 2
+  Day: 3
+  Day: 4
+  Day: 5
+  Day: 6
+  Day: 7
+Week: 3
+  Day: 1
+  Day: 2
+  Day: 3
+  Day: 4
+  Day: 5
+  Day: 6
+  Day: 7
+
+* Output of both Example1 and Example2 is the same.
+
+Example3: Java nested loops to create pattern
+public class nestedloop {
+	public static void main(String[] args) {
+		int row = 5;
+		
+		// outer loop
+		for (int i = 1; i <= row; i++) {
+			// inner loop to print the numbers
+			for (int j = 1; j <= i; j++) {
+				System.out.print(j + " ");
+			}
+			System.out.println();
+		}
+	}
+}
+
+Output:
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+
+Break and Continue Inside Nested Loop
+When we use a break statement inside the inner loop, 
+it terminates the inner loop but not the outer loop.
+
+Example)
+public class breakloop {
+	public static void main(String[] args) {
+		int weeks = 3;
+		int days = 7;
+		
+		// outer loop
+		for (int i = 1; i <= weeks; i++) {
+			System.out.println("Week: " + i);
+			// inner loop
+			for (int j = 1; j <= days; j++) {
+				// break inside the inner loop
+				if (i == 2) {
+					break;
+				}
+				System.out.println("  Days: " + j);
+			}
+		}
+	}
+}
+
+Output
+Week: 1
+  Days: 1
+  Days: 2
+  Days: 3
+  Days: 4
+  Days: 5
+  Days: 6
+  Days: 7
+Week: 2
+Week: 3
+  Days: 1
+  Days: 2
+  Days: 3
+  Days: 4
+  Days: 5
+  Days: 6
+  Days: 7
+
+In the above example, I have used the break statement inside the inner for loop.
+The program skips the loop when i is 2.
+
+Hence, days for week2 are not printed. However, the outer loop that prints week is unaffected.
+
+Similarly, when I use a continue statement inside the inner loop, it skips the current iteration of the inner loop only.
+The outer loop is unaffected
+ex)
+public class continueloop {
+	public static void main(String[] args) {
+		int weeks = 3;
+		int days = 7;
+		// outer loop
+		for (int i = 1; i <= weeks; i++) {
+			System.out.println("Week: " + i);
+			// inner loop
+			for (int j = 1; j <= days; j++) {
+				// break inside the inner loop
+				if (j % 2 != 0) {
+					continue;
+				}
+				System.out.println("  Days: " + j);
+			}
+		}
+	}
+}
+
+Output
+Week: 1
+  Days: 2
+  Days: 4
+  Days: 6
+Week: 2
+  Days: 2
+  Days: 4
+  Days: 6
+Week: 3
+  Days: 2
+  Days: 4
+  Days: 6
+
+In the above example, we have used the continue statement inside the inner for loop.
+Notice the code, 
+if (j % 2 != 0) {
+	continue;
+}
+
+The continue statement is executed when the value of j is odd.
+Hence, the program only prints those days that are even.
+
+continue statement has affected only the inner loop.
+The outer loop is working without any problem
