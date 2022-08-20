@@ -52,9 +52,15 @@ public class Addition {
 	}
 }
 ```
-- Question: What is the value of `i2`? 
-  - i2 = i2 + (i2 + i1) + 6?
-- Answer: i2 = 33 + (33 + 13) + 6 = 85
+Question: 
+```
+What is the value of `i2`? 
+i2 = i2 + (i2 + i1) + 6?
+```
+Answer: 
+```
+i2 = 33 + (33 + 13) + 6 = 85
+```
 
 ### Subtraction
 ```java
@@ -82,9 +88,15 @@ public class Subtraction {
 	}
 }
 ```
-- Question: What is the value of `i2`?  
-  - i2 = i2 - 11 + i1 - 6?
-- Answer: i2 = 12 - 11 + 26 - 6 = 21
+Question:  
+```
+What is the value of `i2`?
+i2 = i2 - 11 + i1 - 6?
+```
+Answer: 
+```
+i2 = 12 - 11 + 26 - 6 = 21
+```
 
 ### Multiplication
 ```java
@@ -106,9 +118,12 @@ public class Multiplication {
 	}
 }
 ```
-- Question: What is the value of `i2`?  
-  - i2 = i2 = i1 * 3 * -2?
-- Answer: i2 = 48 * 3 * -2 = -288
+Question: 
+```
+What is the value of `i2`? 
+i2 = i2 = i1 * 3 * -2?
+```
+Answer: i2 = 48 * 3 * -2 = -288
 
 
 ### Division
@@ -136,12 +151,17 @@ public class Division {
 	}
 }
 ```
-- Question: What is the value of `i2` and `i3`?  
-  - i2 = i2 = 60/i1/2?
-  - i3 = 12/0?
-- Answer: 
-  - i2 = 60 / 6 / 2 = 5
-  - i3 = `Exception in thread "main" java.lang.ArithmeticException: / by zero`
+Question: 
+```
+What is the value of `i2` and `i3`?  
+i2 = i2 = 60/i1/2?
+i3 = 12/0?
+```
+Answer: 
+```
+i2 = 60 / 6 / 2 = 5
+i3 = `Exception in thread "main" java.lang.ArithmeticException: / by zero`
+```
 > cannot divide by zero. The result is `undefined`.
 > In this case, have raised an exception.
 
@@ -168,9 +188,15 @@ public class Modulo {
 	}
 }
 ```
-- Question: What is the value of `i2`?  
-  - i2 = 30 + 10 % 3?
-- Answer: i2 = 30 + 1(remainder of 10 % 3 is 1) = 31
+Question: 
+```
+What is the value of `i2`?  
+i2 = 30 + 10 % 3?
+```
+Answer: 
+```
+i2 = 30 + 1(remainder of 10 % 3 is 1) = 31
+```
 
 ### Precedence
 This program demonstrates the effects of the order of precedence with the arithmetic operators.
@@ -189,25 +215,96 @@ public class Precedence {
 	}
 }
 ```
-Question: What is the value of `i1` and `i2`? 
-- i1 = 10 + 5 * 2 / 4 - 1?
-- i2 = 100 - 5 * 3 - 1 + 11 / 3?
-
+Question: 
+```
+What is the value of `i1` and `i2`? 
+i1 = 10 + 5 * 2 / 4 - 1?
+i2 = 100 - 5 * 3 - 1 + 11 / 3?
+```
 Answer: 
-
-    i1 = 10 + 5 * 2 / 4 - 1
-       = 10 + 10 / 4 - 1
-       = 10 + 2 - 1
-       = 12 - 1
-       = 11
+```
+i1 = 10 + 5 * 2 / 4 - 1
+   = 10 + 10 / 4 - 1
+   = 10 + 2 - 1
+   = 12 - 1
+   = 11
     
-    i2 = 100 - 5 * 3 - 1 + 11 / 3
-       = 100 - 15 - 1 + 11 / 3
-       = 100 - 15 - 1 + 3
-       = 85 - 1 + 3
-       = 84 + 3
-       = 87
-       
+i2 = 100 - 5 * 3 - 1 + 11 / 3
+   = 100 - 15 - 1 + 11 / 3
+   = 100 - 15 - 1 + 3
+   = 85 - 1 + 3
+   = 84 + 3
+   = 87       
+```
+
+### Integer division
+```java
+public class ArithmeticDemo7 {
+	public static void main(String[] args) {
+		float f1 = 10 / 3;
+		System.out.println("f1 = " + f1 + ".");
+	}
+}
+```
+output
+```
+f1 = 3.0
+```
+- the the two operands of the division operator are given as integer literals (10 and 3).
+- the division operator applied will be the integer division operation.
+- If the result of this operation has a fractional part, it will simply be truncated. No rounding occurs.
+
+### Floating point division
+In order for them to be treated as floating point numbers, one of them must be explicitly denoted a floating point number.
+```java
+public class ArithmeticDemo8 {
+	public static void main(String[] args) {
+		float f1 = 10.0f / 3;
+		
+		System.out.println("f1 = " + f1 + ".");
+	}
+}
+```
+output
+```
+f1 = 3.3333333.
+```
+
+## Arithmetic with floating point types
+- Other complications arise with floating point types.
+- when using the arithmetical operators with the floating point types: *float* and *double*.
+- `float`type is stored in 32 bits
+- `double` type is stored in 64 bits
+- > The finite number of bits used to represent these types means that some values cannot be represented.
+- -> The format used for these types is referred to as the IEEE754 format.
+
+> With the arithmetic operators we may simply see an ‘incorrect’ result.
+
+### Example
+Question : What will the output of this program be?
+```java
+public class ArithmeticDemo9 {
+	public static void main(String[] args) {
+		float f1 = 100.0f * 3.33333f;
+		
+		System.out.println("f1 = " + f1 + ".");
+	}
+}
+```
+My expected output is 
+```
+f1 = 333.333.
+```
+but, the output when run the program
+```
+f1 = 333.33298.
+```
+- This result arises from the fact that the IEEE754 representation of floating point values means that not all values can be represented.
+- This is a difference of 333.333 - 333.33298 = 0.00002.
+- This is the `error`.
+
+
+
 
 
 
