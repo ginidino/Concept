@@ -303,9 +303,161 @@ f1 = 333.33298.
 - This is a difference of 333.333 - 333.33298 = 0.00002.
 - This is the `error`.
 
+## Unary operators
+A number of unary operators (which take only one operand) available in Java
 
+|Operator|Function|
+|------|---|
+|+|Indicates a positive value (the default)|
+|-|Negates a numerical value|
+|++|Increments a value by 1|
+|--|Decrements a value by 1|
+|!|Negates a boolean value|
 
+There are prefix and postfix versions of the ++ and -- operator
 
+## Operator precedence review
+- The arithmetic operators follow the usual order of precedence followed by their mathematical counterparts.
+- The unary operators just introduced, however, have a higher precedence than the arithmetic operators, with the postfix operators introduced having the highest precedence.
+- Order of precedence
 
+|Type|Precedence|
+|------|---|
+|Postfix unary|expr++ expr- -|
+|Unary|++expr - -expr +expr -expr !expr|
+|Multiplicative|* / %|
+|Additive|+ -|
 
+### Example: Unary operators
+#### the unary + and unary - operators.
+- The unary + simply marks an integral value as positive. It has no other effects so is largely useless.
+- The unary - operator negates its operand, which can be a useful operation.
+```java
+public class UnaryDemo1 {
+	public static void main(String[] args) {
+		// the default sign is positive
+		int i1 = 10;
+		
+		// this means the same as the previous assignment
+		int i2 = +10; int i3 = -1;
+		
+		// has no effect so i4 = i3
+		int i4 = +i3;
+		
+		// i5 is set to 5
+		int i5 = 5;
+		
+		// i5 is set to -5
+		i5 = -i5;
+		
+		// i6 is set to -5
+		int i6 = -(-i5);
+		
+		System.out.println("i1 = " + i1 + "."); 
+		System.out.println("i2 = " + i2 + "."); 
+		System.out.println("i3 = " + i3 + "."); 
+		System.out.println("i4 = " + i4 + "."); 
+		System.out.println("i5 = " + i5 + "."); 
+		System.out.println("i6 = " + i6 + ".");
+	}
+}
+```
+output
+```
+i1 = 10.
+i2 = 10.
+i3 = -1.
+i4 = -1.
+i5 = -5.
+i6 = -5.
+```
+
+#### the unary increment (++) and decrement (--). operators.
+- The increment operator simply adds one to its operand. The decrement operator subtracts one from its operand.
+- They are straightforward but both have a prefix and a postfix version.
+
+- the postfix version evaluates to its existing value which is used in the expression and **then** increments or decrements its operand
+- the prefix version first increments or decrements its operand and the new value is used in the expression
+```java
+public class UnaryDemo2 {
+	public static void main(String[] args) {
+		int i1 = 2;
+        
+		// i1 now = 3
+        i1++;
+        
+        int i2 = 5;
+        
+        //i2 now = 6
+        ++i2;
+        
+        // i3 is set to 3, i1 is set to 4
+        int i3 = i1++;
+        
+        // i4 is set to 4, i3 is set to 4
+        int i4 = ++i3;
+        
+        // i5 is set to ???
+        int i5 = ++i4 * 2 + 3;
+        
+        // i6 is set to ???
+        int i6 = i1++ + +i2 - ++i4;
+        
+        System.out.println("i1 = " + i1 + "."); 
+		System.out.println("i2 = " + i2 + "."); 
+		System.out.println("i3 = " + i3 + "."); 
+		System.out.println("i4 = " + i4 + "."); 
+		System.out.println("i5 = " + i5 + "."); 
+		System.out.println("i6 = " + i6 + ".");
+	}
+}
+```
+- i5 = 5 * 2 + 3 = 13
+- i6 = 4 + 6 - 6 = 4
+
+output
+```
+i1 = 5.
+i2 = 6.
+i3 = 4.
+i4 = 6.
+i5 = 13.
+i6 = 4.
+```
+
+#### negation operator
+This negates boolean expressions, which means if its operand is true then it evaluates to false and vice versa.
+```java
+public class UnaryDemo3 {
+	public static void mian(String[] args) {
+		boolean b1 = false; 
+		boolean b2 = true;
+		
+		// b1 is now true
+		b1 = !b1;
+		
+		// b1 is now false
+		b1 = !b1;
+		
+		// b2 is false
+		b2 = b1;
+		
+		// b2 is true
+		b2 = !b1;
+		
+		// b2 is ???
+		b2 = !(!(!b1));
+		
+		System.out.println("b1 = " + b1 + ".");
+		System.out.println("b2 = " + b2 + ".");
+	}
+}
+```
+b2 = !(!(!b1)) = !(!(!flase)) = !(!(true)) = !(!true) = !false = true
+
+output
+```
+b1 = false.
+b2 = true.
+```
 
