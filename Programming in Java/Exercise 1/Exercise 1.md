@@ -91,3 +91,107 @@ Answer
 
 Answer: true
 ```
+
+## Exercise 5
+What value will be assigned to d in this code fragment?
+```
+int a = 5;
+int b = 6;
+int c = 7;
+int d = a + b++ + b;
+```
+Code
+```java
+public class Exercise05 {
+	public static void main(String[] args) {
+	    int a = 5;
+	    int b = 6;
+	    int c = 7;
+	    int d = a + b++ + b;
+	    
+	    System.out.println("d = " + d);
+	}
+}
+```
+Answer
+```
+a = 5;
+b = 6;
+c = 7;
+d = a + b++ + b
+  = 5 + 6 + 7
+  = 18
+
+Answer: d = 18
+```
+
+## Exercise 6
+What value will be assigned to e in this code fragment?
+```
+int a = 5;
+int b = 6;
+int c = 7;
+int e = ++b - a + ++c + b;
+```
+Code
+```java
+public class Exercise06 {
+	public static void main(String[] args) {
+	    int a = 5;
+	    int b = 6;
+	    int c = 7;
+	    int e = ++b - a + ++c + b;
+	    
+	    System.out.println("e = " + e);
+	}
+}
+```
+Answer
+```
+a = 5;
+b = 6;
+c = 7;
+
+e = ++b - a + ++c + b;
+  = 7 - 5 + 8 + 7
+  = 2 + 8 + 7
+  = 10 + 7
+  = 17
+
+Answer: e = 17
+```
+
+## Exercise 7
+What value will be assigned to f in this code fragment?
+```
+int a = 5;
+int b = 6;
+int c = 7;
+int f = a * b++ - c * b;
+```
+Code
+```java
+public class Exercise07 {
+	public static void main(String[] args) {
+	    int a = 5;
+	    int b = 6;
+	    int c = 7;
+	    int f = a * b++ - c * b;
+	    
+	    System.out.println("f = " + f);
+	}
+}
+```
+Answer
+```
+a = 5;
+b = 6;
+c = 7;
+
+f = a * b++ - c * b;
+  = 6 * 6 - 7 * 7
+  = 36 - 49
+  = -19
+
+Answer: f = -19
+```
