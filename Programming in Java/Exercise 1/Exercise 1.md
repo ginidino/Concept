@@ -195,3 +195,118 @@ f = a * b++ - c * b;
 
 Answer: f = -19
 ```
+
+## Exercise 8
+What value will be assigned to b1 in this code fragment?
+```
+int a = 5;
+int b = 6;
+int c = 7;
+boolean b1 = a < --b;
+```
+Code
+```java
+public class Exercise08 {
+	public static void main(String[] args) {
+	    int a = 5;
+	    int b = 6;
+	    int c = 7;
+	    
+	    boolean b1 = a < --b;
+	    
+	    System.out.println("b1 = " + b1);
+	}
+}
+```
+Answer
+```
+a = 5
+b = 6
+c = 7
+
+b1 = a < --b
+   = 5 < --6
+   = 5 < 5
+   = false
+
+Answer: b1 = false
+```
+
+## Exercise 9
+What value will be assigned to b2 in this code fragment?
+```
+int a = 5;
+int b = 6;
+int c = 7;
+boolean b2 = c-- <= ++a +1;
+
+```
+Code
+```java
+public class Exercise09 {
+	public static void main(String[] args) {
+  	    int a = 5;
+	    int b = 6;
+	    int c = 7;
+	 
+	    boolean b2 = c-- <= ++a + 1;
+	    
+	    System.out.println("b2 = " + b2);
+	}
+}
+```
+Answer
+```
+a = 5
+b = 6
+c = 7
+
+b2 = c-- <= ++a + 1
+   = 7-- <= ++5 + 1
+   = 7-- <= 6 + 1
+   = 7-- <= 7
+   = true
+
+Answer: b2 = true
+```
+
+## Exercise 10
+What value will be assigned to b3 in this code fragment?
+```
+int a = 5;
+int b = 6;
+int c = 7;
+c--;
+boolean b3 = c == b && a++ < c;
+```
+Code
+```java
+public class Exercise10 {
+	public static void main(String[] args) {
+	    int a = 5;
+	    int b = 6;
+	    int c = 7;
+	 
+	    c--;
+	    
+	    boolean b3 = c == b && a++ < c;
+	    
+	    System.out.println("b3 = " + b3);
+	}
+}
+```
+Answer
+```
+a = 5
+b = 6
+c = 7
+
+c-- = 7-- -> from next c, c is 6
+
+b3 = c == b && a++ < c
+   = 6 == 6 && 5++ < 6
+   = true && true
+   = true
+
+Answer: b3 = true
+```
