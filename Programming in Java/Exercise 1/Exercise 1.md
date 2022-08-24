@@ -320,6 +320,7 @@ Write a program that performs the following operations:
 􏰀 Assign the result of dividing sum1 by num3 to a new float variable called result.   
 􏰀 Output the value of result.   
 
+### Result -> integer types
 Code
 ```java
 public class Exercise11 {
@@ -337,7 +338,38 @@ public class Exercise11 {
 		int sum1 = num1 + num2;
 		
 		// Assign the result of dividing sum1 by num3 to a new float variable called result.
-		float result = (float) sum1 / num3;
+		float result = sum1 / num3;
+		
+		System.out.println("Sum of num1 and num2 is " + sum1);
+		System.out.println("Result of dividing sum1 by num3 is " + result);
+	}
+}
+```
+Output
+```
+Sum of num1 and num2 is 10
+Result of dividing sum1 by num3 is 3.0
+```
+
+### Result -> floating point type
+Code
+```java
+public class Exercise11 {
+	public static void main(String[] args) {
+		// Create an integer variable called num1 and initialise it 4.
+		int num1 = 4;
+		
+		// Create another integer variable called num2 and initialise it 6.
+		int num2 = 6;
+		
+		// Create another integer variable called num3 and initialise it 3.
+		int num3 = 3;
+		
+		// Assign the result of summing num1 and num2 to a new integer variable called sum1.
+		float sum1 = num1 + num2;
+		
+		// Assign the result of dividing sum1 by num3 to a new float variable called result.
+		float result = sum1 / num3;
 		
 		System.out.println("Sum of num1 and num2 is " + sum1);
 		System.out.println("Result of dividing sum1 by num3 is " + result);
@@ -349,6 +381,7 @@ Output
 Sum of num1 and num2 is 10
 Result of dividing sum1 by num3 is 3.3333333
 ```
+
 
 ## Exercise 12
 Write a program that performs the following operations:   
@@ -489,3 +522,14 @@ Enter the second number: 3
 The sum of the two numbers is: 13
 The product of the two numbers is: 30
 ```
+> Note: In `System.out.println("The sum of the two numbers is: " + (num1 + num2));`, the expression input1 + input2 is surrounded by brackets.    
+> This is because, without the brackets, the output will concatenate the numbers rather than sum them.    
+> if the numbers 10 and 3 are entered by the user, without the brackets the output will be:
+```
+The sum of the two numbers is: 103.
+```
+> If the brackets are added, the output will be:
+```
+The sum of the two numbers is: 13.
+```
+> This is because the + operator works with strings but as a concatenation operation.
