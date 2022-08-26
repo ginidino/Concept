@@ -77,9 +77,26 @@ Some useful String operations
 
 - In order to use these operations, must use methods.
 
-
-
-
-
-
-
+## String length
+The String class allows us to easily find out how many characters are in a String.
+```java
+public class StringDemo2 {
+	public static void main(String[] args) {
+		  String s = "David Bowie";
+	    int slen = s.length();
+	    System.out.println("The String is " + slen + " characters long.");
+	}
+}
+```
+Output
+```
+The String is 11 characters long.
+```
+- The line of code shows the method that is used to find the length of a String
+  - how many characters it contains
+- s is a String
+- To find out the length of the String -> use a method in the String class called `length()`.
+- use that is to type the variable name followed by the period character (‘dot’) followed by the method name.
+```java
+int slen = s.length();
+```
