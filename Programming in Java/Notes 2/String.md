@@ -100,3 +100,61 @@ The String is 11 characters long.
 ```java
 int slen = s.length();
 ```
+
+## Substring
+- The substring operation enables you to create a String that consists of part of another *String*.
+- In the *String* class the methods that can do this are all called `substring()`.
+- All of these methods take parameters.
+
+## Example1
+- code fragment:
+```java
+public class StringDemo3 {
+	public static void main(String[] args) {
+		String s = "David Bowie";
+		String fname = s.substring(0, 5);
+		System.out.println("First name is: " + fname);
+	}
+}
+```
+- Output
+```
+First name is: David
+```
+```java
+String fname = s.substring(0, 5);
+```
+- This version of the substring() method receives two parameters.
+	- They are listed in the brackets.
+- These parameters give the method *information* about what you want it to do.
+- The first parameter (listed first) means the position of the character to start at when creating the substring.
+- The second parameter means the position to end the substring at (+1).
+- Thus, if start counting at zero, and count 5 places you will reach the space character that is between the words “David” and “Bowie”.
+- The space character itself will not be included in the substring, 
+	- i.e. only positions 0, 1, 2, 3 and 4 will be included.
+
+## Example2
+Another version of the substring() method that offers the convenience of only requiring one parameter.
+```java
+public class StringDemo4 {
+	public static void main(String[] args) {
+		String s = "David Bowie";
+		String lname = s.substring(6);
+        	System.out.println("Last name is: " + lname);
+	}
+}
+```
+- Output
+```
+Last name is:  Bowie
+```
+- If use this version of the method, it will be assumed that you want to create a substring that runs up to the end of the String.
+
+- Thus, the parameter passed to this version of the `substring()` method specifies the start position of the substring only. 
+- The end position will be assumed to be the end of the string.
+
+
+
+
+
+
