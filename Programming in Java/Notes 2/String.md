@@ -153,8 +153,137 @@ Last name is:  Bowie
 - Thus, the parameter passed to this version of the `substring()` method specifies the start position of the substring only. 
 - The end position will be assumed to be the end of the string.
 
+## indexOf()
+The indexOf() method will return the position (an integer) of the `first` instance of the character that it receives as a parameter.
 
+- Example
+	- it will return the position in the String of the space character
+```java
+public class StringDemo5 {
+	public static void main(String[] args) {
+		String s = "David Bowie";
+		int spacePos = s.indexOf(' ');
+	    	System.out.println("The space character is in position: " + spacePos);
+	}
+}
+```
+- Output
+```
+The space character is in position:  5
+```
+- The code fragments are not particularly *robust*.
+- The code will not work **unless** used with a first name that has exactly 5 characters.
 
+## indexOf() and substring()
+This version of the program → to find any first name
+```java
+public class StringDemo6 {
+	public static void main(String[] args) {
+		String s = "David Bowie";
+		int spacePos = s.indexOf(' ');
+		String fname = s.substring(0, spacePos);
+		System.out.println("First name is " + fname);
+	}
+}
+```
+Output
+```
+First name is David
+```
 
+This version of the program → Find last name
+```java
+public class StringDemo6a {
+	public static void main(String[] args) {
+		String s = "David Bowie";
+		int spacePos = s.indexOf(' ');
+		String fname = s.substring(spacePos + 1);
+		System.out.println("Last name is " + fname);
+	}
+}
+```
+Output
+```
+Last name is Bowie
+```
 
+## charAt()
+The `charAt()` method allows you to find out which character is at a particular position
+- This method has one parameter
+	- an integer that specifies the location in the String you are interested in
+```java
+public class StringDemo7 {
+	public static void main(String[] args) {
+		String s = "David Bowie";
+		char c1 = s.charAt(0); // D
+	        char c2 = s.charAt(4); // d 
+	    
+	    	System.out.println(c1);
+	   	System.out.println(c2);
+	}
+}
+```
+output
+```
+D
+d
+```
+> Notice that the character is returned as a char not as a String
 
+## Equality of Strings
+```java
+public class StringDemo8 {
+	public static void main(String[] args) {
+		String s1 = "David Bowie";
+		String s2 = "David Bowie";
+		
+		String ss1 = s1.substring(0,5);
+		String ss2 = s2.substring(0,5);
+		
+		System.out.println(ss1);
+		System.out.println(ss2);
+		
+		boolean b1 = (ss1 == ss2);
+		
+		System.out.println("b1 is " + b1);
+	}
+}
+```
+- After outputting the two substrings, this program will output ‘false’
+- The problem is the use of the equality operator `==`
+```java
+boolean b1 = (ss1 == ss2);
+```
+- This expression: ss1==ss2 is comparing two String variables.
+- It is not comparing the actual strings that they contain.
+
+```java
+String s1 = "David Bowie";
+```
+- It creates a variable called s1 and it also creates a string “David Bowie”.
+- These two things are different.
+- s1 is referencing the string “David Bowie” but it is not the same thing as that string.
+- String class has a method that enables us to get around this problem. → `equals()`
+
+## equals()
+```java
+public class StringDemo9 {
+	public static void main(String[] args) {
+		String s1 = "David Bowie";
+		String s2 = "David Bowie";
+		
+		String ss1 = s1.substring(0,5);
+		String ss2 = s2.substring(0,5);
+		
+		System.out.println(ss1);
+		System.out.println(ss2);
+		
+		boolean b1 = (ss1.equals(ss2));
+		
+		System.out.println("b1 is " + b1);
+	}
+}
+```
+- The version of the program on the previous example(StringDemo8) uses the equals() method.
+- This means that the two Strings being referenced will be compared, not the variables.
+- The Strings are equal so the output will be ‘true’.
