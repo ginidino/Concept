@@ -408,3 +408,182 @@ Output
 Input an integer in the range 0 to 20 inclusive: 10
 **********
 ```
+
+## Exercise 9
+Write a program that performs the following operations:
+```
+􏰀 For each integer in the range 0 to 100 inclusive, output the value of that integer multiplied by 5.
+```
+Code
+```java
+public class Exercise09 {
+	public static void main(String[] args) {
+		// For each integer in the range 0 to 100 inclusive, output the value of that integer multiplied by 5.
+		for (int i = 0; i <= 100; i++) {
+			System.out.println(i * 5);
+		}
+	}
+}
+```
+Output
+```
+0
+5
+10
+15
+20
+25
+30
+35
+40
+45
+50
+55
+60
+65
+70
+75
+80
+85
+90
+95
+100
+105
+110
+115
+120
+125
+130
+135
+140
+145
+150
+155
+160
+165
+170
+175
+180
+185
+190
+195
+200
+205
+210
+215
+220
+225
+230
+235
+240
+245
+250
+255
+260
+265
+270
+275
+280
+285
+290
+295
+300
+305
+310
+315
+320
+325
+330
+335
+340
+345
+350
+355
+360
+365
+370
+375
+380
+385
+390
+395
+400
+405
+410
+415
+420
+425
+430
+435
+440
+445
+450
+455
+460
+465
+470
+475
+480
+485
+490
+495
+500
+```
+
+## Exercise 10
+Write a program that performs the following operations:
+```
+􏰀 Prompt the user to enter a positive integer.
+􏰀 Check if the integer is odd or even.
+􏰀 If it is even, output the following message “value is even.”, where ‘value’ is replaced by the value of the integer entered.
+􏰀 If it is odd, output the following message “value is odd.”, where ‘value’ is replaced by the value of the integer entered.
+􏰀 Continue with the above operations until the user enters a negative integer or zero.
+```
+Code
+```java
+mport java.util.Scanner;
+
+public class Exercise10 {
+	public static void main(String[] args) {
+		Scanner reader = new Scanner(System.in);
+		
+		// Prompt the user to enter a positive integer.
+		System.out.print("Enter an integer: ");
+		int num = Integer.parseInt(reader.nextLine());
+		
+		while (num > 0) {
+			// Continue with the above operations until the user enters a negative integer or zero.
+			if (num < 0) {
+				break;
+			}
+			
+			// Check if the integer is odd or even.
+			if (num % 2 != 0) {
+				System.out.println(num + " is odd.");
+			} else {
+				System.out.println(num + " is even.");
+			}
+			System.out.println();
+			
+			System.out.print("Enter an integer: ");
+			num = Integer.parseInt(reader.nextLine());
+		}
+	}
+}
+```
+Output
+```
+Enter an integer: 10
+10 is even.
+
+Enter an integer: 20
+20 is even.
+
+Enter an integer: 21
+21 is odd.
+
+Enter an integer: 45
+45 is odd.
+
+Enter an integer: -1
+```
