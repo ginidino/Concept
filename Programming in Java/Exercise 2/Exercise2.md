@@ -540,7 +540,7 @@ Write a program that performs the following operations:
 
 Code
 ```java
-mport java.util.Scanner;
+import java.util.Scanner;
 
 public class Exercise10 {
 	public static void main(String[] args) {
@@ -550,9 +550,10 @@ public class Exercise10 {
 		System.out.print("Enter an integer: ");
 		int num = Integer.parseInt(reader.nextLine());
 		
-		while (num > 0) {
+		while (true) {
 			// Continue with the above operations until the user enters a negative integer or zero.
 			if (num < 0) {
+				System.out.println("exit");
 				break;
 			}
 			
@@ -584,5 +585,9 @@ Enter an integer: 21
 Enter an integer: 45
 45 is odd.
 
+Enter an integer: 34
+34 is even.
+
 Enter an integer: -1
+exit
 ```
