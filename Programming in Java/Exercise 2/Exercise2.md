@@ -532,13 +532,12 @@ Output
 
 ## Exercise 10
 Write a program that performs the following operations:
-```
-􏰀 Prompt the user to enter a positive integer.
-􏰀 Check if the integer is odd or even.
-􏰀 If it is even, output the following message “value is even.”, where ‘value’ is replaced by the value of the integer entered.
-􏰀 If it is odd, output the following message “value is odd.”, where ‘value’ is replaced by the value of the integer entered.
-􏰀 Continue with the above operations until the user enters a negative integer or zero.
-```
+
+- Prompt the user to enter a positive integer.
+- Check if the integer is odd or even.
+- If it is even, output the following message “value is even.”, where ‘value’ is replaced by the value of the integer entered.
+- If it is odd, output the following message “value is odd.”, where ‘value’ is replaced by the value of the integer entered.
+
 Code
 ```java
 mport java.util.Scanner;
