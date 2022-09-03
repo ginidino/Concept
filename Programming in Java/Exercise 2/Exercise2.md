@@ -591,3 +591,191 @@ Enter an integer: 34
 Enter an integer: -1
 exit
 ```
+
+## Exercise 11
+Exercise 11
+Write a program that performs the following operations:
+
+- Prompt the user to enter an integer.
+- If the integer is positive (or zero), the program should output the square of that number. If the number is negative the program should quit.
+- The program should continue prompting the user for an integer until they enter a negative number which ends the program.
+
+Code
+```java
+import java.util.Scanner;
+
+public class Exercise11 {
+	public static void main(String[] args) {
+		Scanner reader = new Scanner(System.in);
+		
+		// Prompt the user to enter an integer.
+		// If the integer is positive (or zero), the program should output the square of that number
+		// If the number is negative the program should quit.
+		while (true) {
+			System.out.print("Enter an integer: ");
+			int num = Integer.parseInt(reader.nextLine());
+			
+			if (num < 0) {
+			    System.out.println("Quitting.");
+				break;
+			}
+			
+			if (num >= 0) {
+				System.out.println(num * num);
+				System.out.println();
+			}
+		}
+	}
+}
+```
+Output
+```
+Enter an integer: 5
+25
+
+Enter an integer: 9
+81
+
+Enter an integer: 13
+169
+
+Enter an integer: -1
+Quitting.
+```
+
+## Exercise 12
+
+Write a program that performs the following operations:
+- Prompt the user for a series of positive integers. The user should press enter after each integer is input.
+- If the user enters a negative integer, the program should output the following information about the numbers entered, and then quit:
+	- The mean of the values entered.
+	- The maximum value entered.
+	- The minimum value entered.
+	- The range of the values entered.
+
+Code
+```java
+import java.util.Scanner;
+
+public class Exercise12 {
+	public static void main(String[] args) {
+		Scanner reader = new Scanner(System.in);
+		
+		int max = Integer.MIN_VALUE;
+	    int min = Integer.MAX_VALUE;
+	    int count = 0;
+		double sum = 0;
+		
+		// Prompt the user for a series of positive integers. The user should press enter after each integer is input.
+		System.out.println("Enter an integer. Enter a negative number to exit: ");
+		int num = Integer.parseInt(reader.nextLine());
+		
+		while (num >= 0) {
+			sum += num;
+			count++;
+			
+			if (num > max) {
+				max = num;
+			} 
+			
+			if (num < min) {
+				min = num;
+			}
+			num = Integer.parseInt(reader.nextLine());
+		}
+		
+		System.out.println("Max value: " + max);
+	    System.out.println("Min value: " + min);
+	    System.out.println("Range: " + (max - min));
+	    System.out.println("Mean: " + (double)(sum / count));
+	}
+}
+```
+Output
+```
+Enter an integer. Enter a negative number to exit: 
+4
+7
+9
+2
+5
+23
+-1
+Max value: 23
+Min value: 2
+Range: 21
+Mean: 8.333333333333334
+```
+
+## Exercise 13
+Exercise 13
+Write a program that performs the following operations:   
+􏰀 Prompt the user for a series of strings. The user should press enter after each string is input.   
+􏰀 If the user enters the string “quit”, the program should output the following information, and then quit:   
+- The mean length of the strings entered.
+- The length of the longest string entered.
+- The length of the shortest string entered.
+
+Code
+```java
+import java.util.Scanner;
+
+public class Exercise13 {
+	public static void main(String[] args) {
+		Scanner reader = new Scanner(System.in);
+		
+		/* 
+		 * Prompt the user for a series of strings. The user should press enter after each string is input.
+		 * If the user enters the string “quit”, the program should output the following information, and then quit:
+		 * – The mean length of the strings entered. 
+		 * – The length of the longest string entered. 
+		 * – The length of the shortest string entered. 
+		 */
+		int max = Integer.MIN_VALUE;
+	    int min = Integer.MAX_VALUE;
+	    int count = 0;
+	    double sum = 0;
+		
+		System.out.println("Enter a String. Type ’quit’ to quit.");
+		
+		while(true) {
+			String word = reader.nextLine();
+			
+			sum += word.length();
+			count++;
+			
+			if (word.equals("quit")) {
+				System.out.println("exit");
+				break;
+			}
+			System.out.println();
+			
+			if (word.length() > max) {
+				max = word.length();
+			}
+			
+			if (word.length() < min) {
+				min = word.length();
+			}
+		}
+		System.out.println("Max string length: " + max);
+	    System.out.println("Min string length: " + min);
+	    System.out.println("Mean string length: " + (sum / count));
+	}
+}
+```
+Output
+```
+Enter a String. Type ’quit’ to quit.
+example
+level
+exercise
+integer
+string
+quit
+exit
+
+Max string length: 8
+Min string length: 5
+Mean string length: 6.166666666666667
+```
