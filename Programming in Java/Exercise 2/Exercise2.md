@@ -2,12 +2,12 @@
 
 ## Exercise 1
 Write a program that performs the following operations:
-```
-􏰀 Prompt the user to enter an integer.
-􏰀 Check if the integer is odd or even.
-􏰀 If it is even, output the following message “value is even.”, where ‘value’ is replaced by the value of the integer entered.
-􏰀 If it is odd, output the following message “value is odd.”, where ‘value’ is replaced by the value of the integer entered.
-```
+
+􏰀 Prompt the user to enter an integer.   
+􏰀 Check if the integer is odd or even.   
+􏰀 If it is even, output the following message “value is even.”, where ‘value’ is replaced by the value of the integer entered.   
+􏰀 If it is odd, output the following message “value is odd.”, where ‘value’ is replaced by the value of the integer entered.   
+
 Code
 ```java
 import java.util.Scanner;
@@ -84,14 +84,14 @@ The product of the two numbers 624 is greater than 100.
 
 ## Exercise 3
 Write a program that performs the following operations:
-```
-􏰀 Prompt the user to enter three integers.
-􏰀 Check if the sum of the first two integers is equal to the value of the third integer.
-􏰀 If it is not true that the sum of the first two integers is equal to the value of the third integer, output a suitable message.
-􏰀 If it is true, output a message with the following format: 
-  - “input1 and input2 are a number bond of input3”, where you replace ‘input1’, ‘input2’ and ‘input3’ with the three entered values. 
-  - For example, if the user enters the numbers 4, 6 and 10, the output would be “4 and 6 are a number bond of 10”.
-```
+
+􏰀 Prompt the user to enter three integers.   
+􏰀 Check if the sum of the first two integers is equal to the value of the third integer.   
+􏰀 If it is not true that the sum of the first two integers is equal to the value of the third integer, output a suitable message.   
+􏰀 If it is true, output a message with the following format:    
+  - “input1 and input2 are a number bond of input3”, where you replace ‘input1’, ‘input2’ and ‘input3’ with the three entered values.    
+  - For example, if the user enters the numbers 4, 6 and 10, the output would be “4 and 6 are a number bond of 10”.   
+
 Code
 ```java
 import java.util.Scanner;
@@ -134,12 +134,12 @@ The sum of first number (5) and second number (6) is equal to the third. (11)
 
 ## Exercise 4
 Write a program that performs the following operations:
-```
-􏰀 Prompt the user to enter their age (as an integer). This value should not be negative. If the user enters a negative age, the program should end.
-􏰀 If the input age is less than 18, print out a message stating that the user is too young.
-􏰀 If the input age is between 18 and 50 inclusive, print out a message stating that the user may proceed.
-􏰀 If the input age is 51 or greater, output a message stating that the user is too old.
-```
+
+􏰀 Prompt the user to enter their age (as an integer). This value should not be negative. If the user enters a negative age, the program should end.   
+􏰀 If the input age is less than 18, print out a message stating that the user is too young.   
+􏰀 If the input age is between 18 and 50 inclusive, print out a message stating that the user may proceed.   
+􏰀 If the input age is 51 or greater, output a message stating that the user is too old.   
+
 Code
 ```java
 import java.util.Scanner;
