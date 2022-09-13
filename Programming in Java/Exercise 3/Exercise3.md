@@ -374,7 +374,13 @@ There are 7 duplicate numbers in the input.
 There are 1 distinct numbers in the input.
 ```
 
+## Exercise8
+Exercise 8
+Write a program that performs the following operations:
+- Prompt the user to enter a series of positive integers as a single line of input. Any number of integers might be entered. There will be a space between each input integer.
+- The program should then output the integers as a set, i.e. with duplicates removed.
 
+Implementation note: Since you will not know in advance how many items should be in the set, you should create an array that is the same size as the input array to hold the set. Since, in this exercise, the input values will be positive, you can fill this set array with negative values. This means you can define a negative value to mean a value in the set array that is not valid (since, in general, the number of valid elements in the set array will be less than the number of values in the input array).
 
 Code
 ```java
@@ -425,7 +431,6 @@ public class Exercise08 {
 	}
 }
 ```
-
 Output
 ```
 
