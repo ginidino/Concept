@@ -433,5 +433,7 @@ public class Exercise08 {
 ```
 Output
 ```
-
+Enter a series of integers on a single line, each separated by a space from the previous.
+1 1 2 2 3 4 5 5 6
+1 2 3 4 5 6 
 ```
