@@ -319,3 +319,114 @@ Now enter an index.
 3
 The sum from index 3 is 8.
 ```
+
+## Exercise7
+Write a program that performs the following operations:
+- Prompt the user to enter a series of integers as a single line of input. Any number of integers might be entered. There will be a space between each input integer.
+- The program should then output the number of values in the series of integers that are duplicated. For example, an input of 1 1 1 would yield the output 3; an input of 1 1 2 would yield the output 2; an input of 1 1 1 2 2 2 1 1 1 would yield the output 9. Note that every instance of any duplicated number is counted.
+- The program should then output how many unique numbers exist in the input, i.e., how many numbers are not duplicated.
+
+Code
+```java
+import java.util.Scanner;
+
+public class Exercise07 {
+	public static void main(String[] args) {
+		Scanner reader = new Scanner(System.in);
+		
+		System.out.println("Enter a series of integers on a single line, each separated by a space from the previous.");
+		String num = reader.nextLine();
+		
+		String[] newStr = num.split(" ");
+		int[] value = new int[newStr.length];
+		
+		for (int i = 0; i < value.length; i++) {
+			value[i] = Integer.parseInt(newStr[i]);
+		}
+		
+		boolean checkDuplicates = false;
+		int count = 0;
+		
+		for (int i = 0; i < value.length; i++) {
+			for (int j = 0; j < value.length; j++) {
+				if (i != j) {
+					if (value[i] == value[j]) {
+						checkDuplicates = true;
+					}
+				}
+			}
+			if (checkDuplicates) {
+				count++;
+				checkDuplicates = false;
+			}
+		}
+		
+		System.out.println("There are " + count + " duplicate numbers in the input.");
+		System.out.println("There are " + (value.length - count) + " distinct numbers in the input.");
+	}
+}
+```
+Output
+```
+Enter a series of integers on a single line, each separated by a space from the previous.
+1 1 2 2 3 2 2 1
+There are 7 duplicate numbers in the input.
+There are 1 distinct numbers in the input.
+```
+
+
+
+Code
+```java
+import java.util.Scanner;
+
+public class Exercise08 {
+	public static void main(String[] args) {
+		Scanner reader = new Scanner(System.in);
+		
+		System.out.println("Enter a series of integers on a single line, each separated by a space from the previous.");
+		String num = reader.nextLine();
+		
+		String[] newStr = num.split(" ");
+		int[] value = new int[newStr.length];
+		
+		for (int i = 0; i < value.length; i++) {
+			value[i] = Integer.parseInt(newStr[i]);
+		}
+		
+		int[] set = new int[value.length];
+		
+		for (int i = 0; i < value.length; i++) {
+			set[i] = -1;
+		}
+		
+		int count = 0;
+		boolean checkDuplicates = false;
+		
+		for (int i = 0; i < value.length; i++) {
+			for (int j = 0; j < value.length; j++) {
+				if (set[j] == value[i]) {
+					checkDuplicates = true;
+				}
+			}
+			
+			if (!checkDuplicates) {
+				set[i] = value[i];
+			}
+			
+			checkDuplicates = false;
+		}
+		
+		for (int i = 0; i < set.length; i++) {
+			if (set[i] >= 0) {
+				System.out.print(set[i] + " ");
+			}
+		}
+	}
+}
+```
+
+Output
+```
+
+```
