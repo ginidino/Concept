@@ -437,3 +437,112 @@ Enter a series of integers on a single line, each separated by a space from the 
 1 1 2 2 3 4 5 5 6
 1 2 3 4 5 6 
 ```
+
+## Exercise9
+Write a program that performs the following operations:
+-  Prompt the user for a positive integer.
+-  Print out a two-dimensional grid of numbers with side length equal to the integer that was entered. For example, if the user enters the value 5, then print out a grid with 5 rows and 5 columns.
+-  Each element of the grid should have the value row-position×column-position. For example, if an element has the position (3,2) (i.e. row 3, column 2), its value should be 6.
+
+The output does not need to be formatted. Each grid element can be printed out with no spaces around it. This means that, beyond a certain input number, the output grid will not ‘look square’.
+
+Code
+```java
+import java.util.Scanner;
+
+public class Exercise09 {
+	public static void main(String[] args) {
+		Scanner reader = new Scanner(System.in);
+		
+		System.out.print("Enter a positive integer: ");
+		int num = Integer.parseInt(reader.nextLine());
+		
+		int[][] grid = new int[num][num];
+		
+		for (int i = 0; i < num; i++) {
+			for (int j = 0; j < num; j++) {
+				grid[i][j] = i * j;
+			}
+		}
+		
+		for (int i = 0; i < num; i++) {
+			for (int j = 0; j < num; j++) {
+				System.out.print(grid[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}
+```
+Output
+```
+Enter a positive integer: 3
+000
+012
+024
+```
+
+## Exercise10
+Write a program that performs the following operations:
+- Create the following two-dimensional array. This is an array of single digit integers. Do not ask the user to input the array. The array should be declared in the code.
+```
+0145
+3797
+1821
+```
+- Print out the array as shown above, i.e. do not not put spaces or commas, etc. in the output.
+- Prompt the user for a number written in the format “xy” with no space in between. This number represents an index in the array. The value of x is the row number and the value of y is the column number.
+- Output the array element given by the index that was entered. For example, if the use enters ”23” it should output ’1’. Now set the value of the element addressed by the index to zero and print out the array again. In this example, the array would now look like this:
+```
+0145
+3797
+1820
+```
+
+Code
+```java
+import java.util.Scanner;
+
+public class Exercise10 {
+	public static void main(String[] args) {
+		Scanner reader = new Scanner(System.in);
+		
+		int[][] arr = {{0, 1, 4, 5}, {3, 7, 9, 7}, {1, 8, 2, 1}};
+		
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[0].length; j++) {
+				System.out.print(arr[i][j]);
+			}
+			System.out.println();
+		}
+		
+		System.out.print("Enter an index: ");
+		String numArr = reader.nextLine();
+		
+		int row = Character.getNumericValue(numArr.charAt(0));
+		int column = Character.getNumericValue(numArr.charAt(1));
+		
+		System.out.println(arr[row][column]);
+		
+		arr[row][column] = 0;
+		
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[0].length; j++) {
+				System.out.print(arr[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}
+```
+Output
+```
+0145
+3797
+1821
+Enter an index: 11
+7
+0145
+3097
+1821
+```
