@@ -1,7 +1,7 @@
 # Exercise4
 
 ## Exercise1
-Write a program that performs the following operations:
+Write a program that performs the following operations:   
 􏰀 Prompt the user to enter an integer.   
 􏰀 Check if the integer is odd or even.   
 􏰀 If it is even, output the following message “value is even.”, where ‘value’ is replaced by the value of the integer entered.   
