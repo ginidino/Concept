@@ -138,3 +138,5 @@ Output
 Input an integer to see its cube: 3
 Cube of 3: 27
 ```
+
+## Exerxise5
