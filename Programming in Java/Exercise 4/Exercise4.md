@@ -140,3 +140,6 @@ Cube of 3: 27
 ```
 
 ## Exerxise5
+
+
+## Exercisr6
