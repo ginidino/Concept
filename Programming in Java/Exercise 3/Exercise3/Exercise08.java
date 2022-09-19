@@ -22,7 +22,7 @@ public class Exercise08 {
 			set[i] = -1;
 		}
 		
-		int count = 0;
+		//int count = 0;
 		boolean checkDuplicates = false;
 		
 		for (int i = 0; i < value.length; i++) {
