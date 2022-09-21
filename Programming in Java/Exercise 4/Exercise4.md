@@ -451,3 +451,23 @@ _pple
 ```
 
 ## Exercise9
+Write a program that performs the following operations:
+- Prompt the user to enter a simple mathematical expression of the form *`value operator value`*, where *`value`* is an integer and *`operator`* is one of +, −, ∗, /. Valid inputs would include, for example, 3 + 4, 10 ∗ −7, 12 / 0. There will be a space between the three elements of the input. The expression should be input as a single line.
+- Evaluate the expression in the input and output the result.
+
+Note that you will need to deal with the divide-by-zero case. If the user attempts a divide by zero, output a message stating that the operation cannot be performed.
+
+Your program must include a method with the following signature:
+```java
+public static float eval(int operand1, int operand2, char operator)
+```
+You need to write this method. Make the signature exactly as shown above.
+
+The purpose of the eval method should hopefully be clear from its signature. It will receive the two operands from the input expression. `operand1` will be the left-hand side operand and `operand2` will be the right-hand side operand. The operator will be received as a `char`. The method should apply the operator to the operands and return the result as a `float`.
+
+Your method will need to deal with the divide-by-zero case. If the denominator is zero and the operator is divide, you can return `Float.MIN VALUE`. Then, from the `main` method, if your `eval` method returns that value you can simply output a message stating that this is an illegal operation and quit the program.
+
+You can also decide how to deal with integer division giving an inaccurate result. Remember that, for example, 9/4 = 2, if integer division is used. To force this operation to give a floating point result, one of the operands must be cast to a `float`, for example:
+```java
+float result = operand1/(float)operand2;
+```
