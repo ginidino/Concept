@@ -471,3 +471,7 @@ You can also decide how to deal with integer division giving an inaccurate resul
 ```java
 float result = operand1/(float)operand2;
 ```
+
+Code
+
+Output
